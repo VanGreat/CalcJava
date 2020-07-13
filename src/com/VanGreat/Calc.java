@@ -57,10 +57,22 @@ class Calc {
         Scanner s = new Scanner(rims); // конвертируем ответ в число (для индекса)
         int c = s.nextInt();
 
-        RimN rim[] = RimN.values(); // ищем в перечислении константу по полученному индексу
-        RimN num = rim[--c];
+        if(c==0){
+            sum = "Zero";
+        }
+        else if(c<0){
+            c = -c;
+            RimN rim[] = RimN.values(); // ищем в перечислении константу по полученному индексу
+            RimN num = rim[--c];
 
-        sum = num.toString(); // присваиваем значение константы строке и возвращаем ее
+            sum = "-" + num.toString(); // присваиваем значение константы строке и возвращаем ее
+        }
+        else {
+            RimN rim[] = RimN.values(); // ищем в перечислении константу по полученному индексу
+            RimN num = rim[--c];
+
+            sum = num.toString(); // присваиваем значение константы строке и возвращаем ее
+        }
         return sum;
     }
 }
